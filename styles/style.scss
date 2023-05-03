@@ -1,0 +1,50 @@
+* {
+  margin: 0;
+  padding: 0;
+  color: #fff;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: inherit;
+}
+
+input {
+  background-color: #000;
+  border: #fff 2px solid;
+  border-radius: 10px;
+  width: 50px;
+  height: 50px;
+  font-size: 28px;
+  text-align: center;
+}
+
+body {
+  background-color: #000;
+
+  max-width: 90vw;
+
+  margin: 0 auto;
+}
+
+header {
+  justify-content: center;
+  display: grid;
+  padding: 25px;
+  font-size: 48px;
+}
+
+.game__field {
+  display: grid;
+  justify-content: center;
+  gap: 5px;
+  grid-template-columns: repeat(5, max-content);
+
+  &:hover {
+    transition: 0.4s;
+  }
+}
