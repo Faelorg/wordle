@@ -3,48 +3,67 @@ import './styles/style.scss'
 import { returnWord, checkWord } from './words.js'
 
 let inputs = document.querySelectorAll('input')
+inputs.forEach(element => {
+	element.disabled = true
+});
+let word
+let mainWord
 
-let word1
-let word = returnWord()
-
-let mw = Array.from(word)
+let mw = Array.from(mainWord)
 let w = []
 
 let i = 0
+inputs[0 + (i * 5)].disabled = false
+inputs[1 + (i * 5)].disabled = false
+inputs[2 + (i * 5)].disabled = false
+inputs[3 + (i * 5)].disabled = false
+inputs[4 + (i * 5)].disabled = false
 
-document.querySelector('button').onclick = () => {
-	w.push([
-		inputs[0 + i * 5].value,
-		inputs[1 + i * 5].value,
-		inputs[2 + i * 5].value,
-		inputs[3 + i * 5].value,
-		inputs[4 + i * 5].value,
-	])
+document.querySelector('.start').onclick = () => {
+	mainWord = returnWord()
 
-	word1 = w
-		.join('')
-		.replace(',', '')
-		.replace(',', '')
-		.replace(',', '')
-		.replace(',', '')
+}
 
-	if (word == word1) {
+document.querySelector('.check').onclick = () => {
+	w.push(
+		inputs[0 + (i * 5)].value,
+		inputs[1 + (i * 5)].value,
+		inputs[2 + (i * 5)].value,
+		inputs[3 + (i * 5)].value,
+		inputs[4 + (i * 5)].value,
+	)
+
+	
+	console.log(mainWord)
+	word = w.join('')
+	
+	if (mainWord != word) {
 		w.forEach(el => {
 			console.log(el)
-			if (word.includes(el)) {
-				if (word.indexOf(el) == word1.indexOf(el)) {
-					console.log('green')
-					inputs[word.indexOf(el) + i].style.backgroundColor = 'green'
+			if (mainWord.includes(el)) {
+				console.log(mainWord.indexOf(el) +' '+ word.indexOf(el))
+				if (mainWord.indexOf(el) == word.indexOf(el)) {
+					inputs[word.indexOf(el) + i*5].style.backgroundColor = 'green'
 				} else {
-					console.log('orange')
-					inputs[word.indexOf(el) + i].style.backgroundColor = 'orange'
+					inputs[word.indexOf(el) + (i*5)].style.backgroundColor = 'orange'
 				}
-			} else {
-				console.log('win')
 			}
+			inputs[0 + (i * 5)].readOnly = true
+			inputs[1 + (i * 5)].readOnly = true
+			inputs[2 + (i * 5)].readOnly = true
+			inputs[3 + (i * 5)].readOnly = true
+			inputs[4 + (i * 5)].readOnly = true
 		})
+	} else {
+		alert("You are wiiiin")
+		document.querySelector('button').disabled = true
 	}
-	word1 = ''
+	word = ''
 	w = []
 	i++
+	inputs[0 + (i * 5)].disabled = false
+inputs[1 + (i * 5)].disabled = false
+inputs[2 + (i * 5)].disabled = false
+inputs[3 + (i * 5)].disabled = false
+inputs[4 + (i * 5)].disabled = false
 }
