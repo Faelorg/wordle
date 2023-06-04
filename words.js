@@ -1,18 +1,18 @@
 let words = [
-	'Ahead',
-	'Bacon',
-	'Cabin',
-	'Daily',
-	'Early',
-	'Faith',
-	'Ghost',
-	'Happy',
-	'Ideal',
-	'Knees',
-	'Lungs',
-	'Magic',
-	'Nerve',
-	'Oasis',
+	'ahead',
+	'bacon',
+	'cabin',
+	'daily',
+	'early',
+	'faith',
+	'ghost',
+	'happy',
+	'ideal',
+	'knees',
+	'lungs',
+	'magic',
+	'nerve',
+	'oasis',
 	'Paint',
 	'Ready',
 	'Sound',
@@ -994,6 +994,16 @@ let words = [
 
 export function returnWord() {
 	return words[Math.floor(Math.random() * words.length)].toLowerCase()
+}
+
+export function WordIsExist(word) {
+	console.log(words.find(x => x.toLowerCase() == word))
+	let w = words.find(x => x.toLowerCase() == word)
+	if (w != null) {
+		return true
+	} else {
+		return false
+	}
 }
 
 export function checkWord(word, mainWord) {
